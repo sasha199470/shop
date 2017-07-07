@@ -1,0 +1,30 @@
+.navbar-brand {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+a {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.catalog {
+  position: relative;
+
+  .submenu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+  }
+
+  .caret {
+    position: relative;
+    top: 7px;
+    transform: rotate(-90deg);
+  }
+}
+
+.navbar .dropdown-menu > li > a {
+  font-size: 16px;
+}
+

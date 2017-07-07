@@ -1,0 +1,23 @@
+.products {
+  border-right: 1px solid #006687;
+  border-bottom: 1px solid #006687;
+  overflow: hidden;
+}
+
+.product {
+  border-top: 1px solid #006687;
+  border-left: 1px solid #006687;
+  padding: 10px;
+
+  img {
+    width: 100%;
+  }
+}
+
+h1, h3 {
+  margin-top: 0;
+}
+
+.list-group-item {
+  font-size: 20px;
+}

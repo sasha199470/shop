@@ -1,0 +1,9 @@
+target/
+out/
+classes/
+.idea/
+*.iml
+*.map
+node_modules/
+.sass-cache/
+src/app/

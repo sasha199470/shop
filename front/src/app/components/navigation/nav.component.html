@@ -1,0 +1,49 @@
+<div class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a [routerLink]="['/']" class="navbar-brand">Мегастрой</a>
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar-main">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a (click)="getCatalog()" class="dropdown-toggle" data-toggle="dropdown" href="#" id="catalogs" aria-expanded="true">Каталок товаров<span class="caret"></span></a>
+          <ul class="dropdown-menu" aria-labelledby="catalogs">
+
+            <li *ngFor="let category of categories; let i = index"
+                (mouseover)='isHover[i]=true'
+                (mouseout)='isHover[i]=false'
+                [class.open]="isHover[i]"
+                class="catalog dropdown open">
+              <a>{{category.name}}<span class="caret pull-right"></span></a>
+              <ul class="submenu dropdown-menu">
+                <li *ngFor="let subcategory of category.subcategories"><a [routerLink]="['/products', subcategory.id]">{{subcategory.name}}</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <div *ngIf="!isLoggedIn">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a [routerLink]="['/sign-in']">Войти</a></li>
+          <li><a [routerLink]="['/sign-up']">Регистрация</a></li>
+        </ul>
+      </div>
+      <div *ngIf="isLoggedIn">
+        <ul class="nav navbar-nav navbar-right">
+          <li *ngIf="!isAdmin" class="navbar-basket">
+            <a [routerLink]="['/user/basket']">Карзина <span class="badge">{{numberOfBasket}}</span></a>
+          </li>
+          <li><a *ngIf="isAdmin" [routerLink]="['/admin/dashboard']">Панель администратора</a></li>
+          <li><a [routerLink]="['/user/profile']">Профиль</a></li>
+          <li><a (click)="logOut()">Выйти</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

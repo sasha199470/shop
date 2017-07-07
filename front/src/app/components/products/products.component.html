@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-3">
+    <h1>Навигация</h1>
+    <div class="list-group table-of-contents">
+      <a *ngFor="let subdir of productsView.subdirectories"
+         class="list-group-item"
+         [routerLink]="['/products', subdir.id]">{{subdir.name}}
+      </a>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="col-md-12">
+      <div class="products">
+        <div *ngFor="let product of productsView.products" class="product col-md-4">
+          <img [src]="product.image">
+          <h3><b>{{product.name}}</b></h3>
+          <h4><b>Цена: </b>{{product.price}}</h4>
+          <div>
+            <div (click)="addToBasket(product.id)" class="btn btn-success pull-right">В корзину</div>
+            <a [routerLink]="['/product/', product.id]" class="btn btn-link pull-right">Подробнее</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
